@@ -1,6 +1,6 @@
 {
   "name": "@logion/node-exiftool",
-  "version": "2.3.1-2",
+  "version": "2.3.1-3",
   "description": "A Node.js interface to exiftool command-line application.",
   "main": "src/index.js",
   "files": [
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Sobesednik/node-exiftool.git"
+    "url": "git+https://github.com/logion-network/node-exiftool.git"
   },
   "keywords": [
     "metadata",
@@ -24,12 +24,12 @@
     "IPTC",
     "XMP"
   ],
-  "author": "Anton <anton@sobesednik.media>",
+  "author": "Logion Team <info@logion.network>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Sobesednik/node-exiftool/issues"
+    "url": "https://github.com/logion-network/node-exiftool/issues"
   },
-  "homepage": "https://github.com/Sobesednik/node-exiftool#readme",
+  "homepage": "https://github.com/logion-network/node-exiftool#readme",
   "devDependencies": {
     "cross-env": "5.0.0",
     "@logion/exiftool-context": "1.4.1",
