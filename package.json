@@ -1,10 +1,11 @@
 {
-  "name": "node-exiftool",
+  "name": "@logion/node-exiftool",
   "version": "2.3.0",
   "description": "A Node.js interface to exiftool command-line application.",
   "main": "src/index.js",
   "files": [
-    "src/"
+    "src/",
+    "CHANGELOG.md"
   ],
   "scripts": {
     "test": "cross-env ZOROASTER_TIMEOUT=10000 zoroaster test/spec",
