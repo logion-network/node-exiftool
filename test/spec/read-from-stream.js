@@ -1,6 +1,6 @@
 'use strict'
 const assert = require('assert')
-const context = require('exiftool-context')
+const context = require('@logion/exiftool-context')
 const fs = require('fs')
 const makepromise = require('makepromise')
 const exiftool = require('../../src/')

@@ -1,6 +1,6 @@
 const assert = require('assert')
 const EOL = require('os').EOL
-const context = require('exiftool-context')
+const context = require('@logion/exiftool-context')
 const exiftool = require('../../src/')
 context.globalExiftoolConstructor = exiftool.ExiftoolProcess
 

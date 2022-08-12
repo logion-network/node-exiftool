@@ -1,6 +1,6 @@
 'use strict'
 
-const context = require('exiftool-context')
+const context = require('@logion/exiftool-context')
 const assert = require('assert')
 const exiftool = require('../../src/')
 const killPid = require('../lib/kill-pid')

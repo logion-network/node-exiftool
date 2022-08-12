@@ -1,7 +1,7 @@
 const os = require('os')
 const assert = require('assert')
 const child_process = require('child_process')
-const context = require('exiftool-context')
+const context = require('@logion/exiftool-context')
 const exiftool = require('../../src/')
 context.globalExiftoolConstructor = exiftool.ExiftoolProcess
 
@@ -168,7 +168,7 @@ const exiftoolTestSuite = {
                         SourceFile: ctx.replaceSlashes(ctx.jpegFile),
                         Directory: ctx.replaceSlashes(ctx.folder),
                         FileName: 'IMG_9858.JPG',
-                        FileSize: '52 kB',
+                        FileSize: '53 kB',
                         FileType: 'JPEG',
                         FileTypeExtension: 'jpg',
                         MIMEType: 'image/jpeg',
@@ -202,7 +202,7 @@ const exiftoolTestSuite = {
             return ctx.initAndReadMetadata(ctx.fileDoesNotExist)
                 .then((res) => {
                     assert.equal(res.data, null)
-                    assert.equal(res.error, `File not found: ${ctx.fileDoesNotExist}`)
+                    assert.equal(res.error, `Error: File not found - ${ctx.fileDoesNotExist}`)
                 })
         },
         'works with simultaneous requests': (ctx) => {
@@ -215,10 +215,10 @@ const exiftoolTestSuite = {
                 ]))
                 .then((res) => {
                     assert.equal(res[0].data, null)
-                    assert.equal(res[0].error, `File not found: ${ctx.fileDoesNotExist}`)
+                    assert.equal(res[0].error, `Error: File not found - ${ctx.fileDoesNotExist}`)
 
                     assert.equal(res[1].data, null)
-                    assert.equal(res[1].error, `File not found: ${ctx.fileDoesNotExist2}`)
+                    assert.equal(res[1].error, `Error: File not found - ${ctx.fileDoesNotExist2}`)
 
                     assert(Array.isArray(res[2].data))
                     assert.equal(res[2].error, null)
@@ -272,6 +272,25 @@ const exiftoolTestSuite = {
                     })
                     assert.equal(meta.Comment, comment)
                     assert.equal(meta.Scene, undefined) // should be removed with -all=
+                })
+        },
+        'should write multiline': (ctx) => {
+            const description = 'test-line1\ntest-line2'
+            const data = {
+                Description: description,
+            }
+            return ctx.createTempFile()
+                .then(() => ctx.initAndWriteMetadata(ctx.tempFile, data, ['overwrite_original']))
+                .then((res) => {
+                    assert.equal(res.data, null)
+                    assert.equal(res.error, '1 image files updated')
+                })
+                .then(() => ctx.ep.readMetadata(ctx.tempFile))
+                .then((res) => {
+                    assert(Array.isArray(res.data))
+                    assert.equal(res.error, null)
+                    const meta = res.data[0]
+                    assert.equal(meta.Description, description)
                 })
         },
     },

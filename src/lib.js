@@ -6,7 +6,12 @@ const isStream = require('is-stream')
 
 function writeStdIn(proc, data, encoding) {
     // console.log('write stdin', data)
-    proc.stdin.write(data, encoding)
+    if(/[\n\r]/.test(data)) {
+        proc.stdin.write("#[CSTR]", encoding)
+        proc.stdin.write(data.replaceAll(/(\r\n|\n\r|\n|\r)/g, "\\n"), encoding)
+    } else {
+        proc.stdin.write(data, encoding)
+    }
     proc.stdin.write(EOL, encoding)
 }
 

@@ -12,7 +12,7 @@ $ ps x | grep perl | grep exiftool
 */
 
 // const exiftoolBin = require('dist-exiftool')
-const exiftoolBin = require('exiftool-context').exiftoolBin
+const exiftoolBin = require('@logion/exiftool-context').exiftoolBin
 const exiftool = require('../.')
 const options = {
     detached: !!process.env.DETACHED,

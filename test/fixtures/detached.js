@@ -1,4 +1,4 @@
-const ExiftoolContext = require('exiftool-context')
+const ExiftoolContext = require('@logion/exiftool-context')
 const exiftool = require('../../.')
 
 const bin = ExiftoolContext.exiftoolBin

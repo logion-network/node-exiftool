@@ -1,5 +1,5 @@
 // const exiftoolBin = require('dist-exiftool')
-const exiftoolBin = require('exiftool-context').exiftoolBin
+const exiftoolBin = require('@logion/exiftool-context').exiftoolBin
 const fs = require('fs')
 const path = require('path')
 const exiftool =  require('../')

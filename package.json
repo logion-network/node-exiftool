@@ -32,7 +32,7 @@
   "homepage": "https://github.com/Sobesednik/node-exiftool#readme",
   "devDependencies": {
     "cross-env": "5.0.0",
-    "exiftool-context": "1.4.0",
+    "@logion/exiftool-context": "1.4.1",
     "makepromise": "1.0.0",
     "ps-node": "0.1.6",
     "zoroaster": "0.4.6"
