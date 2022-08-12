@@ -1,6 +1,6 @@
 {
   "name": "@logion/node-exiftool",
-  "version": "2.3.0",
+  "version": "2.3.1-2",
   "description": "A Node.js interface to exiftool command-line application.",
   "main": "src/index.js",
   "files": [
